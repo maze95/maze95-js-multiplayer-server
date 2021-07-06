@@ -26,9 +26,10 @@ io.on('connection', client=>{
   //Update everyone that the number of users has changed
   io.sockets.emit('newUserConnected', io.engine.clientsCount, client.id, Object.keys(clients))
 
-  client.on('move', (pos)=>{
+  client.on('move', (pack)=>{
 
-    clients[client.id].position = pos
+    clients[client.id].position = pack.pos
+    clients[client.id].rotation = pack.rot
     io.sockets.emit('userPositions', clients)
 
   })
