@@ -17,7 +17,7 @@ io.on('connection', client=>{
   if(io.engine.clientsCount == 3 && twoPlayerLimit) {
     //client.disconnect()
     client.emit('selfDisconnect', client.id)
-  }
+}
 
   //Add a new client indexed by their id
   clients[client.id] = {
